@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Merubah Dollar Menjadi Rupiah</title>
+    <!-- logo -->
+    <link rel="icon" type="image/x-icon" href="img/logonanto.png">
+
+  </head>
+  <body class="container" style="text-align: center;">
+    <br>
+    <h1 style="font-family:Arial, Helvetica, sans-serif;">Ubahlah Warna Latar Belakang Sesukamu</h1>
+    <p>Klik tombol di bawah nih untuk mengubah warna latar belakang.</p>
+    
+    <button id="ubahWarna">Ubah Warna</button><br><br><br>
+  <br>
+    <script>
+      // Fungsi menghasilkan warna acak
+
+      function generateRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+  
+      // Fungsi untuk mengubah warna latar belakang secara acak
+      function changeBackgroundColor() {
+        var newColor = generateRandomColor();
+        document.body.style.backgroundColor = newColor;
+      }
+  
+      // Menambahkan event listener ke tombol
+      var button = document.getElementById('ubahWarna');
+      button.addEventListener('click', changeBackgroundColor);
+    </script>
+    <!-- fungsi merubah mata uang -->
+    <fieldset style="width: 50%; margin: auto">
+      <legend>Mata Uang Rupiah - Mata Uang Asing</legend>
+
+      <input
+        type="number"
+        id="nominal"
+      />
+      <button
+        id="ubah"
+        onclick="perhitungan()"
+      >
+        Ubah ke Dollar
+      </button>
+      <br /><br />
+      <div id="hasil"></div>
+    </fieldset>
+
+    <script>
+      function perhitungan() {
+        const inputNominal = document.getElementById('nominal').value;
+        document.getElementById('hasil').innerHTML = inputNominal * 14650 + ' Rupiah';
+      }
+    </script>
+  </body>
+</html>
